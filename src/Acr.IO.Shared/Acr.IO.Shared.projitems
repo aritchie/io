@@ -16,9 +16,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)FileSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileSystemImpl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileViewer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDirectory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IFile.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IFileSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IFileViewer.cs" />
   </ItemGroup>
 </Project>

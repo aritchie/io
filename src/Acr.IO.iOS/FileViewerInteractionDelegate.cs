@@ -1,4 +1,5 @@
 using System;
+using Acr.Support.iOS;
 using UIKit;
 
 
@@ -10,8 +11,8 @@ namespace Acr.IO {
 
 
         public FileViewerInterationDelegate() {
-            this.controller = Utils.GetTopViewController();
-            this.view = Utils.GetTopView();
+            this.controller = UIApplication.SharedApplication.GetTopViewController();
+            this.view = UIApplication.SharedApplication.GetTopView();
 
 
             //var publicData = NSFileManager.DefaultManager.GetUrls(NSSearchPathDirectory.SharedPublicDirectory, NSSearchPathDomain.User)[0].Path;

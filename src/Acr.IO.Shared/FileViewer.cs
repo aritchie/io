@@ -4,26 +4,19 @@
 namespace Acr.IO {
 
     public static class FileViewer {
-        private static IFileViewer instance;
-        private static readonly object syncLock = new object();
-
-
-        public static IFileViewer Instance {
-            get {
-                if (instance == null) {
-                    lock (syncLock) {
-                        if (instance == null) {
-#if __PLATFORM__
-                            instance = new FileViewerImpl();
+        static Lazy<IFileViewer> instance = new Lazy<IFileViewer>(() => {
+#if PCL
+            throw new Exception("Platform implementation not found.  Have you added a nuget reference to your platform project?");
 #else
-                            throw new Exception("Platform implementation not found.  Have you added a nuget reference to your platform project?");
+            return new FileViewerImpl();
 #endif
-                        }
-                    }
-                }
-                return instance;
-            }
-            set { instance = value; }
+        });
+
+
+        static IFileViewer customInstance;
+        public static IFileViewer Instance {
+            get { return customInstance ?? instance.Value;  }
+            set { customInstance = value; }
         }
     }
 }

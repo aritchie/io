@@ -1,4 +1,4 @@
-#if __PLATFORM__
+#if __UNIFIED__ || __ANDROID__
 using System;
 using System.IO;
 
@@ -16,19 +16,9 @@ namespace Acr.IO {
 
         #region IFile Members
 
-        public string Name {
-            get { return this.info.Name; }
-        }
-
-
-        public string FullName {
-            get { return this.info.FullName; }
-        }
-
-
-        public string Extension {
-            get { return this.info.Extension; }
-        }
+        public string Name => this.info.Name;
+        public string FullName => this.info.FullName;
+        public string Extension => this.info.Extension;
 
 
         private string mimeType;
@@ -40,15 +30,8 @@ namespace Acr.IO {
         }
 
 
-        public long Length {
-            get { return this.info.Length; }
-        }
-
-
-        public bool Exists {
-            get { return this.info.Exists; }
-        }
-
+        public long Length => this.info.Length;
+        public bool Exists => this.info.Exists;
 
         public Stream Create() {
             return this.info.Create();
@@ -81,7 +64,7 @@ namespace Acr.IO {
         }
 
 
-        private Directory directory; 
+        private Directory directory;
         public IDirectory Directory {
             get {
                 this.directory = this.directory ?? new Directory(this.info.Directory);
@@ -90,19 +73,9 @@ namespace Acr.IO {
         }
 
 
-        public DateTime LastAccessTime {
-            get { return this.info.LastAccessTime; }
-        }
-
-
-        public DateTime LastWriteTime {
-            get { return this.info.LastWriteTime; }
-        }
-
-
-        public DateTime CreationTime {
-            get { return this.info.CreationTime; }
-        }
+        public DateTime LastAccessTime => this.info.LastAccessTime;
+        public DateTime LastWriteTime => this.info.LastWriteTime;
+        public DateTime CreationTime => this.info.CreationTime;
 
         #endregion
 

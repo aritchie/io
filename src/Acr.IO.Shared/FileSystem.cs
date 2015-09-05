@@ -4,27 +4,19 @@
 namespace Acr.IO {
 
     public static class FileSystem {
-
-        private static IFileSystem instance;
-        private static readonly object syncLock = new object();
-
-
-        public static IFileSystem Instance {
-            get {
-                if (instance == null) {
-                    lock (syncLock) {
-                        if (instance == null) {
-#if __PLATFORM__
-                            instance = new FileSystemImpl();
+        static Lazy<IFileSystem> instance = new Lazy<IFileSystem>(() => {
+#if PCL
+            throw new Exception("Platform implementation not found.  Have you added a nuget reference to your platform project?");
 #else
-                            throw new Exception("Platform implementation not found.  Have you added a nuget reference to your platform project?");
+            return new FileSystemImpl();
 #endif
-                        }
-                    }
-                }
-                return instance;
-            }
-            set { instance = value; }
+        });
+
+
+        static IFileSystem customInstance;
+        public static IFileSystem Instance {
+            get { return customInstance ?? instance.Value; }
+            set { customInstance = value; }
         }
     }
 }

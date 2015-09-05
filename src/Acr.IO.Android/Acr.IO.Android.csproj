@@ -50,6 +50,12 @@
   <ItemGroup>
     <Folder Include="Resources\Values\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acr.IO.Interface\Acr.IO.Interface.csproj">
+      <Project>{3092b8b1-f3a7-4ce6-ad9c-bc0fb28b07dc}</Project>
+      <Name>Acr.IO.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\Acr.IO.Shared\Acr.IO.Shared.projitems" Label="Shared" Condition="Exists('..\Acr.IO.Shared\Acr.IO.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Acr.IO</id>
-        <version>2.0.3</version>
+        <version>3.0.0</version>
         <title>ACR File System (IO) Plugin for Xamarin and Windows</title>
         <description>
 Work with the file system with the standard directory/file layout
@@ -17,6 +17,11 @@ Work with the file system with the standard directory/file layout
 [android] Fix loading of cache and external directories
 ability to set default directories to something else
         </releaseNotes>
+        <dependencies>
+            <group targetFramework="xamarinios1">
+                <dependency id="Acr.Support" version="[1.0, 2.0)" />
+            </group>
+        </dependencies>
     </metadata>
     <files>
         <!-- PCL -->
@@ -24,14 +29,21 @@ ability to set default directories to something else
 
         <!-- android -->
         <file src="..\src\Acr.IO.Android\bin\Release\Acr.IO.dll" target="lib\MonoAndroid10\Acr.IO.dll" />
+        <file src="..\src\Acr.IO.Android\bin\Release\Acr.IO.Interface.dll" target="lib\MonoAndroid10\Acr.IO.Interface.dll" />
 
         <!-- ios -->
         <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.dll" target="lib\Xamarin.iOS10\Acr.IO.dll" />
+        <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.Interface.dll" target="lib\Xamarin.iOS10\Acr.IO.Interface.dll" />
 
         <!-- wp8 -->
         <file src="..\src\Acr.IO.WindowsPhone\bin\Release\Acr.IO.dll" target="lib\wp8\Acr.IO.dll" />
+        <file src="..\src\Acr.IO.WindowsPhone\bin\Release\Acr.IO.Interface.dll" target="lib\wp8\Acr.IO.Interface.dll" />
 
-        <!-- win universal -->
-        <!--<file src="..\src\Acr.IO.Windows\bin\Release\Acr.IO.dll" target="lib\wp8\Acr.IO.dll" />-->
+        <!-- uwp -->
+        <!--
+        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.dll" target="lib\uap10.0\Acr.IO.dll" />
+        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.Interface.dll" target="lib\uap10.0\Acr.IO.Interface.dll" />
+        <file src="..\src\Acr.IO.Uwp\Properties\Acr.IO.rd.xml" target="lib\uap10.0\Acr.IO.rd.xml" />
+        -->
     </files>
 </package>

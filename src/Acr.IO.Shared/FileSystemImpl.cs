@@ -1,7 +1,6 @@
 ﻿#if __PLATFORM__
 using System;
 using System.IO;
-using System.Linq;
 
 
 #if __IOS__
@@ -14,7 +13,8 @@ namespace Acr.IO {
     public class FileSystemImpl : IFileSystem {
 
         public FileSystemImpl() {
-#if WINDOWS_PHONE
+#if WINDOWS_UWP
+#elif WINDOWS_PHONE
             var path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
             this.AppData = new Directory(path);
             this.Cache = new Directory(Path.Combine(path, "Cache"));

@@ -37,14 +37,26 @@
   <ItemGroup>
     <Compile Include="FileViewerImpl.cs" />
     <Compile Include="FileViewerInteractionDelegate.cs" />
-    <Compile Include="Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Acr.Support.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acr.Support.1.0.0\lib\Xamarin.iOS10\Acr.Support.iOS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acr.IO.Interface\Acr.IO.Interface.csproj">
+      <Project>{3092b8b1-f3a7-4ce6-ad9c-bc0fb28b07dc}</Project>
+      <Name>Acr.IO.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Acr.IO.Shared\Acr.IO.Shared.projitems" Label="Shared" Condition="Exists('..\Acr.IO.Shared\Acr.IO.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

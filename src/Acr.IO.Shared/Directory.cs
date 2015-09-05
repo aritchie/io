@@ -1,4 +1,4 @@
-﻿#if __PLATFORM__
+﻿#if __UNIFIED__ || __ANDROID__
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,22 +16,11 @@ namespace Acr.IO {
             this.info = info;
         }
 
-        #region IDirectory Members
+#region IDirectory Members
 
-        public string Name {
-            get { return this.info.Name; }
-        }
-
-
-        public string FullName {
-            get { return this.info.FullName; }
-        }
-
-
-        public bool Exists {
-            get { return this.info.Exists; }
-        }
-
+        public string Name => this.info.Name;
+        public string FullName => this.info.FullName;
+        public bool Exists => this.info.Exists;
 
         private IDirectory root;
         public IDirectory Root {
@@ -116,7 +105,7 @@ namespace Acr.IO {
             }
         }
 
-        #endregion
+#endregion
     }
 }
 #endif

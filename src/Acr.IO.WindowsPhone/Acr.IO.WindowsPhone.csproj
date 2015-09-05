@@ -83,8 +83,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FileSystemImpl.cs" />
     <Compile Include="FileViewerImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acr.IO.Interface\Acr.IO.Interface.csproj">
+      <Project>{3092b8b1-f3a7-4ce6-ad9c-bc0fb28b07dc}</Project>
+      <Name>Acr.IO.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Acr.IO.Shared\Acr.IO.Shared.projitems" Label="Shared" Condition="Exists('..\Acr.IO.Shared\Acr.IO.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

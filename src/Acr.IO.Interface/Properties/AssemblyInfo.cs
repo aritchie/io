@@ -1,4 +1,4 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyTitle("Acr.IO.Windows")]
+[assembly: AssemblyTitle("Acr.IO.Interface")]
 [assembly: AssemblyDescription("")]
