@@ -1,4 +1,4 @@
-﻿#if __UNIFIED__ || __ANDROID__
+﻿#if __PLATFORM__
 using System;
 using System.Collections.Generic;
 using System.IO;
