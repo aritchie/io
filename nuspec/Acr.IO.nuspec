@@ -39,11 +39,13 @@ ability to set default directories to something else
         <file src="..\src\Acr.IO.WindowsPhone\bin\Release\Acr.IO.dll" target="lib\wp8\Acr.IO.dll" />
         <file src="..\src\Acr.IO.WindowsPhone\bin\Release\Acr.IO.Interface.dll" target="lib\wp8\Acr.IO.Interface.dll" />
 
+        <!-- netcore -->
+        <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.dll" target="lib\net45\Acr.IO.dll" />
+        <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.Interface.dll" target="lib\net45\Acr.IO.Interface.dll" />
+
         <!-- uwp -->
-        <!--
         <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.dll" target="lib\uap10.0\Acr.IO.dll" />
         <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.Interface.dll" target="lib\uap10.0\Acr.IO.Interface.dll" />
         <file src="..\src\Acr.IO.Uwp\Properties\Acr.IO.rd.xml" target="lib\uap10.0\Acr.IO.rd.xml" />
-        -->
     </files>
 </package>
