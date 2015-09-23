@@ -9,6 +9,7 @@ namespace Acr.IO {
         public int PercentComplete { get; }
         public long FileSize { get; }
         public long BytesCompleted { get; }
+        public double BytesPerSecond { get; }
         // TODO: throughput per second
 
 
@@ -17,6 +18,8 @@ namespace Acr.IO {
             this.BytesCompleted = bytesCompleted;
             this.PercentComplete = Convert.ToInt32(bytesCompleted * 100.0 / fileSize);
             this.TimeSpent = DateTime.UtcNow.Subtract(startUtc);
+            this.BytesPerSecond = bytesCompleted / this.TimeSpent.TotalSeconds; // TODO: should be a sampling, not overall
+            this.TimeRemaining = TimeSpan.FromSeconds(this.BytesCompleted / this.BytesPerSecond);
         }
     }
 }
