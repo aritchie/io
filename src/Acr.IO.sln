@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5005E7F1-B367-41CB-AFAB-FC7237B10241}"
 	ProjectSection(SolutionItems) = preProject
 		..\nuspec\Acr.IO.nuspec = ..\nuspec\Acr.IO.nuspec
+		..\nuspec\nuget.exe = ..\nuspec\nuget.exe
 		..\nuspec\pack.cmd = ..\nuspec\pack.cmd
 		..\nuspec\push.cmd = ..\nuspec\push.cmd
 		..\readme.md = ..\readme.md
