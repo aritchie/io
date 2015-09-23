@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 
 namespace Acr.IO {
 
-    public interface IDirectory {
+    public interface IDirectory : IFileSystemObject {
 
-        string Name { get; }
-        string FullName { get; }
-        bool Exists { get; }
+        Task<IEnumerable<IFileSystemObject>> GetFileSystemObjectsAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly);
+        Task<IEnumerable<IFile>> GetFilesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly);
+        Task<IEnumerable<IDirectory>> GetDirectoriesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly);
+        //Task CopyToAsync(string path, Action<DirectoryCopyProgress> onProgress = null, CancellationToken cancelToken = default(CancellationToken));
+
 
         IDirectory Root { get; }
         IDirectory Parent { get; }
-
-        DateTime CreationTime { get; }
-        DateTime LastAccessTime { get; }
-        DateTime LastWriteTime { get; }
 
         void Create();
         void MoveTo(string path);

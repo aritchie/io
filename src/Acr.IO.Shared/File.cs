@@ -1,24 +1,20 @@
 #if __PLATFORM__
 using System;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 
 namespace Acr.IO {
 
-    public class File : IFile {
-        private readonly FileInfo info;
+    public class File : FileSystemObject, IFile {
+        readonly FileInfo info;
 
 
         public File(string fileName) : this(new FileInfo(fileName)) {}
-        internal File(FileInfo info) {
+        internal File(FileInfo info) : base(info) {
             this.info = info;
         }
-
-        #region IFile Members
-
-        public string Name => this.info.Name;
-        public string FullName => this.info.FullName;
-        public string Extension => this.info.Extension;
 
 
         private string mimeType;
@@ -31,7 +27,7 @@ namespace Acr.IO {
 
 
         public long Length => this.info.Length;
-        public bool Exists => this.info.Exists;
+
 
         public Stream Create() {
             return this.info.Create();
@@ -53,18 +49,41 @@ namespace Acr.IO {
         }
 
 
-        public IFile CopyTo(string path) {
-            var file = this.info.CopyTo(path);
-            return new File(file);
+        public IFile CopyTo(string path, bool overwrite) {
+            var create = this.info.CopyTo(path, overwrite);
+            return new File(create);
         }
 
 
-        public void Delete() {
-            this.info.Delete();
+        public async Task<IFile> CopyToAsync(string path, bool overwrite, Action<FileCopyProgress> onProgress, CancellationToken token) {
+            var create = new File(path);
+            if (overwrite)
+                create.DeleteIfExists();
+
+            var buffer = new byte[65535];
+            var totalCopy = 0;
+            var start = DateTime.UtcNow;
+
+            using (var readStream = this.OpenRead()) {
+                using (var writeStream = create.Create()) {
+
+                    var read = await readStream.ReadAsync(buffer, 0, buffer.Length, token);
+                    while (read > 0 && !token.IsCancellationRequested) {
+                        await writeStream.WriteAsync(buffer, 0, read, token);
+                        read = await readStream.ReadAsync(buffer, 0, buffer.Length, token);
+                        totalCopy += read;
+                        onProgress?.Invoke(new FileCopyProgress(totalCopy, this.Length, start));
+                    }
+                }
+            }
+            if (token.IsCancellationRequested)
+                create.DeleteIfExists();
+
+            return new File(path);
         }
 
 
-        private Directory directory;
+        Directory directory;
         public IDirectory Directory {
             get {
                 this.directory = this.directory ?? new Directory(this.info.Directory);
@@ -73,14 +92,7 @@ namespace Acr.IO {
         }
 
 
-        public DateTime LastAccessTime => this.info.LastAccessTime;
-        public DateTime LastWriteTime => this.info.LastWriteTime;
-        public DateTime CreationTime => this.info.CreationTime;
-
-        #endregion
-
-
-        private string GetMimeType() {
+        string GetMimeType() {
 			var ext = Path.GetExtension(this.Name);
 
 #if __ANDROID__

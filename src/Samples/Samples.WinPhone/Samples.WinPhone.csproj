@@ -159,10 +159,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Acr.IO.WindowsPhone\Acr.IO.WindowsPhone.csproj">
-      <Project>{602a2388-5b02-4f99-8bf2-80d362855fba}</Project>
-      <Name>Acr.IO.WindowsPhone</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Samples\Samples.csproj">
       <Name>Samples</Name>
     </ProjectReference>

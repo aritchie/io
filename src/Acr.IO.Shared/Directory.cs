@@ -3,26 +3,52 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace Acr.IO {
 
-    public class Directory : IDirectory {
-        private readonly DirectoryInfo info;
+    public class Directory : FileSystemObject, IDirectory {
+        readonly DirectoryInfo info;
 
 
         public Directory(string path) : this(new DirectoryInfo(path)) {}
-        internal Directory(DirectoryInfo info) {
+        internal Directory(DirectoryInfo info) : base(info) {
             this.info = info;
         }
 
-#region IDirectory Members
 
-        public string Name => this.info.Name;
-        public string FullName => this.info.FullName;
-        public bool Exists => this.info.Exists;
+        public Task<IEnumerable<IFileSystemObject>> GetFileSystemObjectsAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly) {
+            var opt = option == FsSearchOption.AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+            return Task.Run(() => this.info
+                .GetFileSystemInfos(pattern ?? "*.*", opt)
+                .Select(x => new FileSystemObject(x))
+                .Cast<IFileSystemObject>()
+            );
+        }
 
-        private IDirectory root;
+
+        public Task<IEnumerable<IFile>> GetFilesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly) {
+            var opt = option == FsSearchOption.AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+            return Task.Run(() => this.info
+                .GetFiles(pattern ?? "*.*", opt)
+                .Select(x => new File(x))
+                .Cast<IFile>()
+            );
+        }
+
+
+        public Task<IEnumerable<IDirectory>> GetDirectoriesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly) {
+            var opt = option == FsSearchOption.AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+            return Task.Run(() => this.info
+                .GetDirectories(pattern ?? "*.*", opt)
+                .Select(x => new Directory(x))
+                .Cast<IDirectory>()
+            );
+        }
+
+
+        IDirectory root;
         public IDirectory Root {
             get {
                 this.root = this.root ?? new Directory(this.info.Root);
@@ -37,21 +63,6 @@ namespace Acr.IO {
                 this.parent = this.parent ?? new Directory(this.info.Parent);
                 return this.parent;
             }
-        }
-
-
-        public DateTime CreationTime {
-            get { return this.info.CreationTime; }
-        }
-
-
-        public DateTime LastAccessTime {
-            get { return this.info.LastAccessTime; }
-        }
-
-
-        public DateTime LastWriteTime {
-            get { return this.info.LastWriteTime; }
         }
 
 
@@ -104,8 +115,6 @@ namespace Acr.IO {
                 return this.files;
             }
         }
-
-#endregion
     }
 }
 #endif

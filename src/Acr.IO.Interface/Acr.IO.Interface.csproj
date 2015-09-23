@@ -34,10 +34,14 @@
     <Compile Include="..\Acr.IO.Shared\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="DirectoryCopyProgress.cs" />
+    <Compile Include="FsSearchOption.cs" />
     <Compile Include="IDirectory.cs" />
     <Compile Include="IFile.cs" />
     <Compile Include="IFileSystem.cs" />
+    <Compile Include="IFileSystemObject.cs" />
     <Compile Include="IFileViewer.cs" />
+    <Compile Include="FileCopyProgress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

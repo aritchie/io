@@ -35,10 +35,6 @@ ability to set default directories to something else
         <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.dll" target="lib\Xamarin.iOS10\Acr.IO.dll" />
         <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.Interface.dll" target="lib\Xamarin.iOS10\Acr.IO.Interface.dll" />
 
-        <!-- wp8 -->
-        <file src="..\src\Acr.IO.WindowsPhone\bin\Release\Acr.IO.dll" target="lib\wp8\Acr.IO.dll" />
-        <file src="..\src\Acr.IO.WindowsPhone\bin\Release\Acr.IO.Interface.dll" target="lib\wp8\Acr.IO.Interface.dll" />
-
         <!-- netcore -->
         <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.dll" target="lib\net45\Acr.IO.dll" />
         <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.Interface.dll" target="lib\net45\Acr.IO.Interface.dll" />
