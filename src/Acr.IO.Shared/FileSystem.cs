@@ -4,7 +4,7 @@
 namespace Acr.IO {
 
     public static class FileSystem {
-        static Lazy<IFileSystem> instance = new Lazy<IFileSystem>(() => {
+        static readonly Lazy<IFileSystem> instance = new Lazy<IFileSystem>(() => {
 #if PCL
             throw new Exception("Platform implementation not found.  Have you added a nuget reference to your platform project?");
 #else

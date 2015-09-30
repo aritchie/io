@@ -232,3 +232,4 @@ $RECYCLE.BIN/
 /src/Samples.Uwp/project.lock.json
 /src/Acr.IO.Uwp/project.lock.json
 /src/.vs/config/applicationhost.config
+/src/Samples/Samples.Uwp/project.lock.json
