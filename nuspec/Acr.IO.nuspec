@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Acr.IO</id>
-        <version>3.0.0</version>
+        <version>3.0.0-beta1</version>
         <title>ACR File System (IO) Plugin for Xamarin and Windows</title>
         <description>
 Work with the file system with the standard directory/file layout
@@ -14,8 +14,9 @@ Work with the file system with the standard directory/file layout
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>xamarin windows xam.pcl file io</tags>
         <releaseNotes>
-[android] Fix loading of cache and external directories
-ability to set default directories to something else
+3.0
+Reboot of the project
+[feature] UWP and NETFX implementations
         </releaseNotes>
         <dependencies>
             <group targetFramework="xamarinios1">

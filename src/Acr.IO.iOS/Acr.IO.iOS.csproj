@@ -35,6 +35,7 @@
     <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;__PLATFORM__</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FileSystemWatcherImpl.cs" />
     <Compile Include="FileViewerImpl.cs" />
     <Compile Include="FileViewerInteractionDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
