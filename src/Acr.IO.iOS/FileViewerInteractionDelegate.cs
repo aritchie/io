@@ -3,14 +3,17 @@ using Acr.Support.iOS;
 using UIKit;
 
 
-namespace Acr.IO {
+namespace Acr.IO
+{
 
-    public class FileViewerInterationDelegate : UIDocumentInteractionControllerDelegate {
+    public class FileViewerInterationDelegate : UIDocumentInteractionControllerDelegate
+    {
         private readonly UIViewController controller;
         private readonly UIView view;
 
 
-        public FileViewerInterationDelegate() {
+        public FileViewerInterationDelegate()
+        {
             this.controller = UIApplication.SharedApplication.GetTopViewController();
             this.view = UIApplication.SharedApplication.GetTopView();
 
@@ -33,12 +36,14 @@ namespace Acr.IO {
         }
 
 
-        public override UIViewController ViewControllerForPreview(UIDocumentInteractionController controller) {
+        public override UIViewController ViewControllerForPreview(UIDocumentInteractionController controller)
+        {
             return this.controller;
         }
 
 
-        public override UIView ViewForPreview(UIDocumentInteractionController controller) {
+        public override UIView ViewForPreview(UIDocumentInteractionController controller)
+        {
             return this.view;
         }
     }
