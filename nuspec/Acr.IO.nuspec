@@ -19,8 +19,8 @@ Reboot of the project
 [feature] UWP and NETFX implementations
         </releaseNotes>
         <dependencies>
-            <group targetFramework="xamarinios1">
-                <dependency id="Acr.Support" version="[1.0, 2.0)" />
+            <group targetFramework="Xamarin.iOS10">
+                <dependency id="Acr.Support" version="[2.0.2, 3)" />
             </group>
         </dependencies>
     </metadata>
