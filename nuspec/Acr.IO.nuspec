@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Acr.IO</id>
-        <version>3.0.0-beta2</version>
+        <version>3.0.0-beta3</version>
         <title>ACR File System (IO) Plugin for Xamarin and Windows</title>
         <description>
 Work with the file system with the standard directory/file layout
@@ -26,23 +26,19 @@ Reboot of the project
     </metadata>
     <files>
         <!-- PCL -->
-        <file src="..\src\Acr.IO\bin\Release\Acr.IO.dll" target="lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10\Acr.IO.dll" />
+        <file src="..\src\Acr.IO\bin\Release\Acr.IO.*" target="lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10" />
 
         <!-- android -->
-        <file src="..\src\Acr.IO.Android\bin\Release\Acr.IO.dll" target="lib\MonoAndroid10\Acr.IO.dll" />
-        <file src="..\src\Acr.IO.Android\bin\Release\Acr.IO.Interface.dll" target="lib\MonoAndroid10\Acr.IO.Interface.dll" />
+        <file src="..\src\Acr.IO.Android\bin\Release\Acr.IO.*" target="lib\MonoAndroid10" />
 
         <!-- ios -->
-        <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.dll" target="lib\Xamarin.iOS10\Acr.IO.dll" />
-        <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.Interface.dll" target="lib\Xamarin.iOS10\Acr.IO.Interface.dll" />
+        <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.*" target="lib\Xamarin.iOS10" />
 
         <!-- netcore -->
-        <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.dll" target="lib\net45\Acr.IO.dll" />
-        <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.Interface.dll" target="lib\net45\Acr.IO.Interface.dll" />
+        <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.*" target="lib\net45" />
 
         <!-- uwp -->
-        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.dll" target="lib\uap10.0\Acr.IO.dll" />
-        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.Interface.dll" target="lib\uap10.0\Acr.IO.Interface.dll" />
+        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.*" target="lib\uap10.0" />
         <file src="..\src\Acr.IO.Uwp\Properties\Acr.IO.rd.xml" target="lib\uap10.0\Acr.IO.rd.xml" />
     </files>
 </package>
