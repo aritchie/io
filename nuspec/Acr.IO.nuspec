@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Acr.IO</id>
-        <version>3.0.0-beta5</version>
+        <version>3.0.0</version>
         <title>ACR File System (IO) Plugin for Xamarin and Windows</title>
         <description>
 Work with the file system with the standard directory/file layout
