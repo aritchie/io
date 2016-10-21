@@ -115,7 +115,9 @@
   <ItemGroup>
     <Compile Include="FileViewerImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\Acr.IO.rd.xml" />
+    <None Include="Properties\Acr.IO.rd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acr.IO.Interface\Acr.IO.Interface.csproj">

@@ -42,8 +42,6 @@ Reboot of the project
 
         <!-- uwp -->
         <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.*" target="lib\uap10.0" />
-        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.pri" target="lib\uap10.0" />
-        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO\*.*" target="lib\uap10.0\Acr.IO" />
         <file src="..\src\Acr.IO.Uwp\bin\Release\Properties\*.rd.xml" target="lib\uap10.0\Acr.IO\Properties" />
 
     </files>
