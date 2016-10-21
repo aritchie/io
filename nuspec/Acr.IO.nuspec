@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Acr.IO</id>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
         <title>ACR File System (IO) Plugin for Xamarin and Windows</title>
         <description>
 Work with the file system with the standard directory/file layout
@@ -14,13 +14,16 @@ Work with the file system with the standard directory/file layout
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>xamarin windows xam.pcl file io</tags>
         <releaseNotes>
+3.0.1
+fix UWP permissions
+
 3.0
 Reboot of the project
 [feature] UWP and NETFX implementations
         </releaseNotes>
         <dependencies>
             <group targetFramework="Xamarin.iOS10">
-                <dependency id="Acr.Support" version="[2.0.2, 3)" />
+                <dependency id="Acr.Support" version="[2.1.0, 3)" />
             </group>
         </dependencies>
     </metadata>
@@ -39,6 +42,9 @@ Reboot of the project
 
         <!-- uwp -->
         <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.*" target="lib\uap10.0" />
-        <file src="..\src\Acr.IO.Uwp\Properties\Acr.IO.rd.xml" target="lib\uap10.0\Acr.IO.rd.xml" />
+        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.pri" target="lib\uap10.0" />
+        <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO\*.*" target="lib\uap10.0\Acr.IO" />
+        <file src="..\src\Acr.IO.Uwp\bin\Release\Properties\*.rd.xml" target="lib\uap10.0\Acr.IO\Properties" />
+
     </files>
 </package>
