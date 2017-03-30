@@ -7,19 +7,24 @@ using Android.Content;
 using Env = Android.OS.Environment;
 
 
-namespace Acr.IO {
+namespace Acr.IO
+{
 
-    public class FileViewerImpl : IFileViewer {
+    public class FileViewerImpl : IFileViewer
+    {
         private readonly string externalDirectory;
 
 
-        public FileViewerImpl() {
+        public FileViewerImpl()
+        {
             this.externalDirectory = Application.Context.GetExternalFilesDir(null).AbsolutePath;
         }
 
 
-        public bool Open(IFile file) {
-            try {
+        public bool Open(IFile file)
+        {
+            try
+            {
                 // external apps do not have access to cache directory, copy from the cache to an external location
                 var newPath = this.GetReadPath(file.Name);
                 file.CopyTo(newPath);
@@ -34,14 +39,16 @@ namespace Acr.IO {
                 Application.Context.StartActivity(intent);
                 return true;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Debug.WriteLine(ex);
                 return false;
             }
         }
 
 
-        private string GetReadPath(string fileName) {
+        private string GetReadPath(string fileName)
+        {
             var fn = Path
                 .GetFileName(fileName)
                 .Replace('"', '_');
@@ -51,7 +58,8 @@ namespace Acr.IO {
         }
 
 
-        private static bool IsIntentManagable(Intent intent) {
+        private static bool IsIntentManagable(Intent intent)
+        {
             return Application
                 .Context
                 .PackageManager

@@ -233,3 +233,5 @@ $RECYCLE.BIN/
 /src/Acr.IO.Uwp/project.lock.json
 /src/.vs/config/applicationhost.config
 /src/Samples/Samples.Uwp/project.lock.json
+/src/Acr.IO.Android/Acr.IO.Android.csproj.bak
+/src/Samples/Samples.Droid/Samples.Droid.csproj.bak

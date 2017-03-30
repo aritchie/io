@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Acr.IO</id>
-        <version>3.0.1</version>
+        <version>3.1.0</version>
         <title>ACR File System (IO) Plugin for Xamarin and Windows</title>
         <description>
 Work with the file system with the standard directory/file layout
@@ -14,6 +14,9 @@ Work with the file system with the standard directory/file layout
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>xamarin windows xam.pcl file io</tags>
         <releaseNotes>
+3.1.0
+More file exposure
+
 3.0.1
 fix UWP permissions
 
@@ -37,12 +40,11 @@ Reboot of the project
         <!-- ios -->
         <file src="..\src\Acr.IO.iOS\bin\iPhone\Release\Acr.IO.*" target="lib\Xamarin.iOS10" />
 
-        <!-- netcore -->
-        <file src="..\src\Acr.IO.NetCore\bin\Release\Acr.IO.*" target="lib\net45" />
+        <!-- net45 -->
+        <file src="..\src\Acr.IO.Net\bin\Release\Acr.IO.*" target="lib\net45" />
 
         <!-- uwp -->
         <file src="..\src\Acr.IO.Uwp\bin\Release\Acr.IO.*" target="lib\uap10.0" />
-        <file src="..\src\Acr.IO.Uwp\bin\Release\Properties\*.rd.xml" target="lib\uap10.0\Acr.IO\Properties" />
 
     </files>
 </package>

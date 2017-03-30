@@ -30,9 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,9 +48,9 @@
       <Project>{3092b8b1-f3a7-4ce6-ad9c-bc0fb28b07dc}</Project>
       <Name>Acr.IO.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Acr.IO.NetCore\Acr.IO.NetCore.csproj">
-      <Project>{c0d2f655-24b0-450c-a23f-774b6fbb7dae}</Project>
-      <Name>Acr.IO.NetCore</Name>
+    <ProjectReference Include="..\Acr.IO.Net\Acr.IO.Net.csproj">
+      <Project>{afb45ce2-4e18-4b45-a39a-91bbd4ea7148}</Project>
+      <Name>Acr.IO.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

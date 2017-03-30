@@ -1,22 +1,25 @@
 ﻿using System;
 
 
-namespace Acr.IO {
+namespace Acr.IO
+{
 
-    public static class FileSystem {
-        static readonly Lazy<IFileSystem> instance = new Lazy<IFileSystem>(() => {
+    public static class FileSystem
+    {
+        static IFileSystem current;
+        public static IFileSystem Current
+        {
+            get
+            {
 #if PCL
-            throw new Exception("Platform implementation not found.  Have you added a nuget reference to your platform project?");
+                if (current == null)
+                    throw new Exception("[Acr.IO] Platform implementation not found.  Have you added a nuget reference to your platform project?");
 #else
-            return new FileSystemImpl();
+                current = current ?? new FileSystemImpl();
 #endif
-        });
-
-
-        static IFileSystem customInstance;
-        public static IFileSystem Instance {
-            get { return customInstance ?? instance.Value; }
-            set { customInstance = value; }
+                return current;
+            }
+            set { current = value; }
         }
     }
 }

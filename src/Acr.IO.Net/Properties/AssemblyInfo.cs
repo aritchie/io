@@ -1,4 +1,4 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyTitle("Acr.IO.NetCore")]
+[assembly: AssemblyTitle("Acr.IO.Net")]
 [assembly: AssemblyDescription("")]

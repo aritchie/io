@@ -35,6 +35,9 @@
       <Link>AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="DirectoryCopyProgress.cs" />
+    <Compile Include="FileAccess.cs" />
+    <Compile Include="FileMode.cs" />
+    <Compile Include="FileShare.cs" />
     <Compile Include="FsSearchOption.cs" />
     <Compile Include="IDirectory.cs" />
     <Compile Include="IFile.cs" />
