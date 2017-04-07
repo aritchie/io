@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.10
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.IO", "Acr.IO\Acr.IO.csproj", "{A35E0D2E-F509-4925-8D08-293C330A8E08}"
 EndProject
@@ -258,6 +258,7 @@ Global
 		{AEFEEC0A-9704-4441-BF38-BC034F818A85}.AppStore|x64.ActiveCfg = AppStore|iPhoneSimulator
 		{AEFEEC0A-9704-4441-BF38-BC034F818A85}.AppStore|x86.ActiveCfg = AppStore|iPhone
 		{AEFEEC0A-9704-4441-BF38-BC034F818A85}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{AEFEEC0A-9704-4441-BF38-BC034F818A85}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{AEFEEC0A-9704-4441-BF38-BC034F818A85}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{AEFEEC0A-9704-4441-BF38-BC034F818A85}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{AEFEEC0A-9704-4441-BF38-BC034F818A85}.Debug|iPhone.Build.0 = Debug|iPhone
@@ -482,6 +483,8 @@ Global
 		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.AppStore|x86.Build.0 = Release|x86
 		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.AppStore|x86.Deploy.0 = Release|x86
 		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.Debug|Any CPU.Build.0 = Debug|x86
+		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.Debug|ARM.ActiveCfg = Debug|ARM
 		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.Debug|ARM.Build.0 = Debug|ARM
 		{CC5C54B7-93F5-4CD9-9384-468CF39D8020}.Debug|ARM.Deploy.0 = Debug|ARM

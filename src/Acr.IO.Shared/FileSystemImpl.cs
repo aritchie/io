@@ -2,19 +2,20 @@
 using System;
 using System.IO;
 
-
 #if __IOS__
 using UIKit;
 using Foundation;
 #endif
 
-namespace Acr.IO {
+namespace Acr.IO
+{
 
-    public class FileSystemImpl : IFileSystem {
+    public class FileSystemImpl : IFileSystem
+    {
 
-        public FileSystemImpl() {
+        public FileSystemImpl()
+        {
 #if WINDOWS_UWP
-#elif WINDOWS_PHONE
             var path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
             this.AppData = new Directory(path);
             this.Cache = new Directory(Path.Combine(path, "Cache"));
@@ -56,14 +57,8 @@ namespace Acr.IO {
         public IDirectory Temp { get; set; }
 
 
-        public IDirectory GetDirectory(string path) {
-            return new Directory(new DirectoryInfo(path));
-        }
-
-
-        public IFile GetFile(string fileName) {
-            return new File(new FileInfo(fileName));
-        }
+        public IDirectory GetDirectory(string path) => new Directory(new DirectoryInfo(path));
+        public IFile GetFile(string fileName) => new File(new FileInfo(fileName));
     }
 }
 #endif

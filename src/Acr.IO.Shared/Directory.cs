@@ -6,19 +6,23 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Acr.IO {
+namespace Acr.IO
+{
 
-    public class Directory : FileSystemObject, IDirectory {
+    public class Directory : FileSystemObject, IDirectory
+    {
         readonly DirectoryInfo info;
 
 
         public Directory(string path) : this(new DirectoryInfo(path)) {}
-        internal Directory(DirectoryInfo info) : base(info) {
+        internal Directory(DirectoryInfo info) : base(info)
+        {
             this.info = info;
         }
 
 
-        public Task<IEnumerable<IFileSystemObject>> GetFileSystemObjectsAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly) {
+        public Task<IEnumerable<IFileSystemObject>> GetFileSystemObjectsAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly)
+        {
             var opt = option == FsSearchOption.AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
             return Task.Run(() => this.info
                 .GetFileSystemInfos(pattern ?? "*.*", opt)
@@ -28,7 +32,8 @@ namespace Acr.IO {
         }
 
 
-        public Task<IEnumerable<IFile>> GetFilesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly) {
+        public Task<IEnumerable<IFile>> GetFilesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly)
+        {
             var opt = option == FsSearchOption.AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
             return Task.Run(() => this.info
                 .GetFiles(pattern ?? "*.*", opt)
@@ -38,7 +43,8 @@ namespace Acr.IO {
         }
 
 
-        public Task<IEnumerable<IDirectory>> GetDirectoriesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly) {
+        public Task<IEnumerable<IDirectory>> GetDirectoriesAsync(string pattern = null, FsSearchOption option = FsSearchOption.TopDirectoryOnly)
+        {
             var opt = option == FsSearchOption.AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
             return Task.Run(() => this.info
                 .GetDirectories(pattern ?? "*.*", opt)
@@ -49,8 +55,10 @@ namespace Acr.IO {
 
 
         IDirectory root;
-        public IDirectory Root {
-            get {
+        public IDirectory Root
+        {
+            get
+            {
                 this.root = this.root ?? new Directory(this.info.Root);
                 return this.root;
             }
@@ -58,8 +66,10 @@ namespace Acr.IO {
 
 
         private IDirectory parent;
-        public IDirectory Parent {
-            get {
+        public IDirectory Parent
+        {
+            get
+            {
                 this.parent = this.parent ?? new Directory(this.info.Parent);
                 return this.parent;
             }
