@@ -90,9 +90,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +126,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Acr.IO.Interface\Acr.IO.Interface.csproj">
+      <Project>{3092b8b1-f3a7-4ce6-ad9c-bc0fb28b07dc}</Project>
+      <Name>Acr.IO.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Acr.IO.Uwp\Acr.IO.Uwp.csproj">
+      <Project>{df163ac8-e643-48fc-bc7d-47095a4394b6}</Project>
+      <Name>Acr.IO.Uwp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\Samples.csproj">
+      <Project>{f00e1613-0d67-496a-9aae-719fd75e9994}</Project>
+      <Name>Samples</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

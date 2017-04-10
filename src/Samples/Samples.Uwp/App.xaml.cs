@@ -2,8 +2,10 @@
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Forms;
+using Application = Windows.UI.Xaml.Application;
+using Frame = Windows.UI.Xaml.Controls.Frame;
 
 
 namespace Samples.Uwp
@@ -13,7 +15,7 @@ namespace Samples.Uwp
         public App()
         {
             this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            this.Suspending += this.OnSuspending;
         }
 
 
@@ -24,7 +26,9 @@ namespace Samples.Uwp
             if (rootFrame == null)
             {
                 rootFrame = new Frame();
-                rootFrame.NavigationFailed += OnNavigationFailed;
+                rootFrame.NavigationFailed += this.OnNavigationFailed;
+
+                Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

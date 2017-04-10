@@ -32,7 +32,8 @@ namespace Acr.IO
             this.Temp = new Directory(Path.Combine(documents, "..", "tmp"));
             this.Public = new Directory(documents);
 #elif __ANDROID__
-            try {
+            try
+            {
                 var ctx = Android.App.Application.Context;
                 this.AppData = new Directory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
