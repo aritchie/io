@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Acr.IO</id>
-        <version>3.1.0</version>
+        <version>3.1.1</version>
         <title>ACR File System (IO) Plugin for Xamarin and Windows</title>
         <description>
 Work with the file system with the standard directory/file layout
@@ -14,11 +14,15 @@ Work with the file system with the standard directory/file layout
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>xamarin windows xam.pcl file io</tags>
         <releaseNotes>
+3.1.1
+[fix][uwp] Root pathes are now set properly
+[feature] Allow user to set root paths as they feel necessary
+
 3.1.0
-More file exposure
+[feature] More file exposure
 
 3.0.1
-fix UWP permissions
+[fix][uwp] permission issues
 
 3.0
 Reboot of the project
@@ -32,7 +36,7 @@ Reboot of the project
     </metadata>
     <files>
         <!-- PCL -->
-        <file src="..\src\Acr.IO\bin\Release\Acr.IO.*" target="lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10" />
+        <file src="..\src\Acr.IO\bin\Release\Acr.IO.*" target="lib\portable-net45+wp8+win8+wpa81" />
 
         <!-- android -->
         <file src="..\src\Acr.IO.Android\bin\Release\Acr.IO.*" target="lib\MonoAndroid10" />

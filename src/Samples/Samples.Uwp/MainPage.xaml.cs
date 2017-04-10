@@ -1,13 +1,15 @@
 ﻿using System;
+using Acr.IO;
 
 
 namespace Samples.Uwp
 {
-    public sealed partial class MainPage
+    public sealed partial class MainPage : Xamarin.Forms.Platform.UWP.WindowsPage
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            FileSystem.Current.AppData = new Directory("");
+            //this.InitializeComponent();
             this.LoadApplication(new Samples.App());
         }
     }
